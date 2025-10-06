@@ -1,17 +1,82 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+            mostrarMenu();
+    }
+
+    //controlar : nombre vacios, nombre de solo letras, edades negativas, opciones de menú fuera de rango,
+    //nombres repetidos ? cómo los buscamos?
+    //se buscan subcadenas del nombre ?
+
+
+    public static void mostrarMenu(){
+        Scanner listaOpciones = new Scanner(System.in); //Recojo las respuestas
+        boolean salir = true;
+        int opcion;
+
+        do{
+            System.out.println("===Gestor de Estudiantes===");
+            System.out.println("1. Añadir estudiante");
+            System.out.println("2. Listar estudiante");
+            System.out.println("3. Buscar estudiante por nombre");
+            System.out.println("4. Calcular nota media general");
+            System.out.println("5. Mostrar estudiante con mejor nota");
+            System.out.println("6. Salir");
+
+            System.out.print("Elige una opción:\n");
+            opcion = listaOpciones.nextInt();
+//            if(opcion>=1 && opcion<=6)
+//            {
+//
+//            }
+
+            listaOpciones.nextLine(); //limpiar buffer
+
+            switch (opcion) {
+                case 1:
+                    crearEstudiante();
+                    break;
+                case 2:
+                    listarEstudiante();
+                    break;
+                case 3:
+                    buscarEstudiante();
+                    break;
+                case 4:
+                    calcularMedia();
+                    break;
+                case 5:
+                    mejorNota();
+                    break;
+                case 6:
+                    salir = false; //arreglar
+                    System.out.print("Has salido del programa");
+            }
+        }while(salir);
+
+
+
+    }
+
+    private static void mejorNota() {
+    }
+
+    private static void calcularMedia() {
+    }
+
+    private static void buscarEstudiante() {
+    }
+
+    private static void listarEstudiante() {
+    }
+
+    private static void crearEstudiante() {
     }
 }
+
+
