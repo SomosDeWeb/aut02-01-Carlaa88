@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class GestorEstudiante {
 
     private ArrayList<Estudiante>estudiantes;
-    double suma = 0;
 
     public GestorEstudiante(){
         this.estudiantes = new ArrayList<>();
@@ -17,8 +16,9 @@ public class GestorEstudiante {
        estudiantes.add(nuevoEstudiante);
     }
 
-//    private static void listarEstudiante() {
-//    }
+    public ArrayList<Estudiante> listarEstudiante() {
+        return estudiantes;
+    }
 
     public Estudiante buscarEstudiante(String nombre) {
 
@@ -30,7 +30,23 @@ public class GestorEstudiante {
        return null; //si no se encuentra
     }
 
-//    public double calcularMedia() {}
-//    private static void mejorNota() {
-//    }
+    public double calcularMedia() {
+        double suma = 0;
+        if(estudiantes.isEmpty()){return -1;}
+        for(int i=0; i<estudiantes.size();i++){
+            suma+=estudiantes.get(i).getMedia();
+        }
+        return suma/estudiantes.size();
+    }
+
+    public Estudiante mejorNota() {
+        Estudiante mejor = estudiantes.get(0);
+        if(estudiantes.isEmpty()){return null;}
+        for(int i=0; i<estudiantes.size();i++){
+            if(estudiantes.get(i).getMedia() > mejor.getMedia()) {
+                mejor = estudiantes.get(i);
+            }
+        }
+        return mejor;
+    }
 }

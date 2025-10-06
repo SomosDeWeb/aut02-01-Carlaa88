@@ -1,6 +1,7 @@
 package org.example;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -12,6 +13,7 @@ public class Main {
 
     public static void gestionarMenu(GestorEstudiante gestor){
         Scanner listaOpciones = new Scanner(System.in); //Recojo las respuestas
+
         boolean salir = false;
         String select;
         int opcion = 0;
@@ -38,16 +40,37 @@ public class Main {
                     añadirEstudiante(gestor, listaOpciones);
                     break;
                 case 2:
-//                    listarEstudiante();
+                    ArrayList<Estudiante>lista=gestor.listarEstudiante();
+                    if (lista.isEmpty()) {
+                        System.out.println("No hay estudiantes registrados.\n");
+                    } else {
+                        System.out.println("=== Lista de Estudiantes ===");
+                        for (int i = 0; i < lista.size(); i++) {
+                            System.out.println((i + 1) + ". " + lista.get(i));
+                        }
+                        System.out.println();
+                    }
                     break;
                 case 3:
                      buscarEstudiante(gestor, listaOpciones);
                     break;
                 case 4:
-//                    calcularMedia();
+                    double mediaGeneral = gestor.calcularMedia();
+                    if (mediaGeneral == -1) {
+                        System.out.println("No hay estudiantes registrados.\n");
+                    } else {
+                        System.out.println("La media general de los estudiantes es: "
+                                + Math.round(mediaGeneral * 100.0) / 100.0 + "\n");
+
+                    }
                     break;
                 case 5:
-//                    mejorNota();
+                    Estudiante mayorNota = gestor.mejorNota();
+                    if(mayorNota!=null){
+                        System.out.println("El estudiante con mejor nota es: " + mayorNota + "\n");
+                    }else{
+                        System.out.println("No hay estudiantes registrados.\n");
+                    }
                     break;
                 case 6:
                     salir = true; //arreglar
@@ -114,8 +137,10 @@ public class Main {
             if (media < 0 || media > 10) {
                 System.out.println("La media debe estar entre 0 y 10.");
             }
-            sc.nextLine(); // limpiar salto de línea pendiente
+
         }while(media < 0 || media > 10);
+
+        sc.nextLine(); // limpiar buffer
 
         //Crear un estudiante
         Estudiante nuevo = new Estudiante(nombre, edad, media, true);
