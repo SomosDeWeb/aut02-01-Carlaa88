@@ -9,7 +9,7 @@ public class Main {
             mostrarMenu();
     }
 
-    //controlar : nombre vacios, nombre de solo letras, edades negativas, opciones de menú fuera de rango,
+    //controlar : nombre vacios, nombre de solo letras, edades o notas negativas, opciones de menú fuera de rango,
     //nombres repetidos ? cómo los buscamos?
     //se buscan subcadenas del nombre ?
 
@@ -39,19 +39,19 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    crearEstudiante();
+//                    crearEstudiante();
                     break;
                 case 2:
-                    listarEstudiante();
+//                    listarEstudiante();
                     break;
                 case 3:
-                    buscarEstudiante();
+//                    buscarEstudiante();
                     break;
                 case 4:
-                    calcularMedia();
+//                    calcularMedia();
                     break;
                 case 5:
-                    mejorNota();
+//                    mejorNota();
                     break;
                 case 6:
                     salir = false; //arreglar
@@ -59,24 +59,8 @@ public class Main {
             }
         }while(salir);
 
-
-
     }
 
-    private static void mejorNota() {
-    }
-
-    private static void calcularMedia() {
-    }
-
-    private static void buscarEstudiante() {
-    }
-
-    private static void listarEstudiante() {
-    }
-
-    private static void crearEstudiante() {
-    }
 }
 
 
