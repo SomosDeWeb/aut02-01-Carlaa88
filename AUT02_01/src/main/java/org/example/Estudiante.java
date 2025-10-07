@@ -16,7 +16,7 @@ public class Estudiante {
         this.matriculado=matriculado;
     }
 
-    public Estudiante(){} //Constructor vacío
+    public Estudiante(){} //Constructor vacío que no usaré en este programa
 
     //Getters
     public String getNombre() {return nombre;}
@@ -33,12 +33,11 @@ public class Estudiante {
     //ToString para devolver los datos sin interacción con el usuario
     @Override
     public String toString() {
-        return "Estudiante{" +
-                "nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                ", media=" + media +
-                ", matriculado=" + matriculado +
-                '}';
+        return "Estudiante:\n" +
+                "nombre: " + nombre + '\n' +
+                "edad: " + edad + '\n' +
+                "media: " + media + '\n' +
+                "matriculado: " + matriculado + '\n' ;
     }
 }
 
